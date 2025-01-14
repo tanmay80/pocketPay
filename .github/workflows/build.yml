@@ -1,7 +1,7 @@
-name: Build Succeeds on PR
+name: Build on PR
 
 on:
-  pull_requet:
+  pull_request:
     branches:
       - master
 
@@ -10,15 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: use Node.js
+      - name: Use Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
-
+      
       - name: Install Dependencies
-        run:  npm install
-
-      # - name: Generate prisma client
-
+        run: npm install
+        
       - name: Run Build
-        run:  npm run Build
+        run: npm run build
